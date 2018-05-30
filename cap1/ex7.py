@@ -6,4 +6,8 @@ from random import randint
 w, h = 8, 5
 Matrix = [[randint(0, 9) for x in range(w)] for y in range(h)]
 
-print(Matrix)
+# print(Matrix)
+
+for linha in Matrix:
+    for coluna in linha:
+        print(coluna)
