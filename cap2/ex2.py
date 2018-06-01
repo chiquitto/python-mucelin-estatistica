@@ -5,7 +5,8 @@ Considere que em uma pesquisa de opinião realizada com 2000 pessoas a respeito 
 '''
 
 import os, sys
-from texttable import Texttable
+sys.path.insert(0, os.path.realpath(os.path.dirname(__file__) + "/.."))
+from src.ExtendedTexttable import ExtendedTexttable
 
 def float2Porc(value):
     return "%.3f%%" % value
@@ -18,10 +19,10 @@ desfavoraveis = 1053
 naoQuiseramOpinar = 117
 naoSabeOpinar = total - (favoraveis + desfavoraveis + naoQuiseramOpinar)
 
-table1 = Texttable()
+table1 = ExtendedTexttable()
 table1.set_cols_align(["l", "r", "r", "r"])
 # table1.set_cols_dtype(["t", "i", "f", "f"])
-table1.set_deco(Texttable.HEADER)
+table1.set_deco(ExtendedTexttable.HEADER | ExtendedTexttable.FOOTER | ExtendedTexttable.BORDER)
 table1.header(["Opinião", "Frequência", "Proporção", "Porcentagem"])
 
 prop = favoraveis / total
@@ -42,6 +43,6 @@ table1.add_row( ["Não souberam opinar", naoSabeOpinar, floatFormat(prop), float
 
 prop = 1
 porc = 100
-table1.add_row( ["Total", total, floatFormat(prop), float2Porc(porc)] )
+table1.footer( ["Total", total, floatFormat(prop), float2Porc(porc)] )
 
 print(table1.draw())
