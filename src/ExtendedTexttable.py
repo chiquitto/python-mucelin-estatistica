@@ -4,12 +4,25 @@ class ExtendedTexttable(texttable.Texttable):
 
     FOOTER = 1 << 4
 
-    def footer(self, array):
-        """Specify the footer of the table
+    def __init__ (self):
+       texttable.Texttable.__init__(self)
+    
+    def _compute_cols_width(self):
+        super(ExtendedTexttable, self)._compute_cols_width()
+
+        if self._footer:
+            for key, value in enumerate(self._width):
+                if len(self._footer) > value:
+                    self._width[key] = len(self._footer)
+
+        print(self._width)
+        print(self._footer)
+    
+    def _has_footer(self):
+        """Return a boolean, if header line is required or not
         """
 
-        self._check_row_size(array)
-        self._footer = list(map(texttable.obj2unicode, array))
+        return self._deco & self.FOOTER > 0
 
     def draw(self):
         out = super(ExtendedTexttable, self).draw()
@@ -26,12 +39,17 @@ class ExtendedTexttable(texttable.Texttable):
                 out += self._hline()
 
         return out[:-1]
-    
-    def _has_footer(self):
-        """Return a boolean, if header line is required or not
+
+    def footer(self, array):
+        """Specify the footer of the table
         """
 
-        return self._deco & self.FOOTER > 0
+        self._check_row_size(array)
+        self._footer = list(map(texttable.obj2unicode, array))
     
     def remove_last_line_from_string(self, s):
         return s[:s.rfind('\n')]
+
+    def reset(self):
+        super(ExtendedTexttable, self).reset()
+        self._footer = []
