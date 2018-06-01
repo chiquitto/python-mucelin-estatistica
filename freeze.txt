@@ -1,1 +1,2 @@
 numpy==1.14.3
+texttable==1.2.1
