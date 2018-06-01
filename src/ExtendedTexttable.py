@@ -14,9 +14,6 @@ class ExtendedTexttable(texttable.Texttable):
             for key, value in enumerate(self._width):
                 if len(self._footer) > value:
                     self._width[key] = len(self._footer)
-
-        print(self._width)
-        print(self._footer)
     
     def _has_footer(self):
         """Return a boolean, if header line is required or not
