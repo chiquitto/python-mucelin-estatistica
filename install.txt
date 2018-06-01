@@ -1,0 +1,8 @@
+Instalar virtualenv
+$ pip install --user virtualenv
+
+Configurar virtualenv para python3
+$ virtualenv -p /usr/bin/python3.5 vpython
+
+Ativar o ambiente virtual
+source vpython/bin/activate
