@@ -1,8 +1,17 @@
-Instalar virtualenv
-$ pip install --user virtualenv
+Instalar pip
+$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+$ python get-pip.py --user
+$ rm get-pip.py
 
-Configurar virtualenv para python3
+Instalar virtualenv
+$ pip3 install --user virtualenv
+Para MAC apenas. Adicionar /Users/chiquitto/Library/Python/3.6/bin ao $PATH
+
+Configurar virtualenv para python3 - Linux
 $ virtualenv -p /usr/bin/python3.5 vpython
+
+Configurar virtualenv para python3 - MAC
+$ virtualenv -p python3.6 vpython
 
 Ativar o ambiente virtual
 source vpython/bin/activate
