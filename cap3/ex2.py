@@ -38,7 +38,7 @@ x = np.arange(len(dados))
 # x = list(range(len(dados)))
 print(x)
 
-path = os.path.realpath(os.path.dirname(__file__))
+path = os.path.realpath(os.path.dirname(__file__) + "/img")
 
 # plt.scatter(x, dados, s=240, marker='+', linewidths=2)
 plt.scatter(x, dados)
