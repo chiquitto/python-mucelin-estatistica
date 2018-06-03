@@ -5,8 +5,9 @@ A tabela a seguir apresenta dados de habitacao no Brasil.
 
 Com base na tabela construa:
 
-a. Grafico de barras dos domicilios brasileiros, segundo os anos de 1997 a 2001
-b. Graficos de pizza para a % de domicílios rurais e urbanos, entre 1997 e 2001
+a. Gráfico de barras dos domicilios brasileiros, segundo os anos de 1997 a 2001
+b. Gráficos de pizza para a % de domicílios rurais e urbanos, entre 1997 e 2001
+c. Gráfico de dispersão para o número de domicílios brasileiros entre os anos de 1997 e 2001
 '''
 
 import os, sys, locale
